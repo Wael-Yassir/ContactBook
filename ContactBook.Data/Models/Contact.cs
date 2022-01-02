@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ContactBook.Data
+namespace ContactBook.Data.Models
 {
     public class Contact : INotifyPropertyChanged
     {
@@ -13,7 +13,7 @@ namespace ContactBook.Data
         public int Id
         {
             get { return _id; }
-            internal set { }
+            internal set { _id = value; }
         }
 
         private string _firstName;
@@ -53,7 +53,6 @@ namespace ContactBook.Data
         public string FullName
         {
             get { return _firstName + " " + _lastName; }
-            private set { }
         }
 
         private string _phone;
@@ -115,26 +114,6 @@ namespace ContactBook.Data
                 }
             }
         }
-        #endregion
-
-        #region Constructors
-        public Contact()
-        {
-
-        }
-
-        public Contact(int id,
-            string firstName, string lastName, string phone,
-            string image, string email, string company)
-        {
-            this.Id = id;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Phone = phone;
-            this.Image = image;
-            this.Email = email;
-            this.Company = company;
-        } 
         #endregion
 
         // using delegate {} is what called delegate trick to avoid checking if the event is null

@@ -1,15 +1,19 @@
 ﻿using System;
+using ContactBook.Data.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ContactBook.Data.DataProvider;
 
 namespace ContactBook.Data
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            JsonGeneraor.CreateJsonFile();
+
+            List<Contact> data = JsonGeneraor.ParseJsonFile();
+
+            Console.ReadLine();
         }
     }
 }
