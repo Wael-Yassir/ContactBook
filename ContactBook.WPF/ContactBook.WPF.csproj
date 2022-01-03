@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Base\BindableBase.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Contact\ContactListView.xaml.cs">
+      <DependentUpon>ContactListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contact\ContactListViewModel.cs" />
+    <Compile Include="Services\ContactRepositoryJson.cs" />
+    <Compile Include="Services\IContactRepository.cs" />
+    <Page Include="Contact\ContactListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converter\" />
+    <Folder Include="Validator\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
