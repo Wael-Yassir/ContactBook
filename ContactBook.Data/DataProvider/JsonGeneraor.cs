@@ -8,15 +8,15 @@ namespace ContactBook.Data.DataProvider
 {
     internal static class JsonGeneraor
     {
-        private static string _dbPath = @"D:\Work\Development\_Side Project\ContactBook\DB";
-        private static string _dbFileName = @"D:\Work\Development\_Side Project\ContactBook\DB\ContactDB.json";
+        private static string _dbPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
+        private static string _dbFileName = _dbPath + @"\ContactDB.json";
 
         private static List<Contact> Contacts
         {
             get => ContactGenerator();
             set { }
         }
-
+        
         private static List<Contact> ContactGenerator()
         {
             return new List<Contact>()
