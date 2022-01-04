@@ -19,7 +19,11 @@ namespace ContactBook.WPF.Contacts
         public Contact SelectedContact
         {
             get { return _selectedContact; }
-            set { SetProperty(ref _selectedContact, value); }
+            set
+            {
+                SetProperty(ref _selectedContact, value);
+                DeleteCommand.RaiseCanExecuteChange();
+            }
         }
 
         public ContactListViewModel(IContactRepository repo)

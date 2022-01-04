@@ -31,6 +31,9 @@
             <Setter Property="Margin" Value="0 5"/>
         </Style>
     </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"/>
+    </UserControl.InputBindings>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
