@@ -7,7 +7,7 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="ContactBook.WPF.MainWindow"
         xmlns:cont="clr-namespace:ContactBook.WPF.Contacts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="580" Width="600">
     <Window.Resources>
         <DataTemplate DataType="{x:Type cont:ContactListViewModel}">
             <cont:ContactListView/>

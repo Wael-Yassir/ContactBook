@@ -64,6 +64,9 @@
     <Compile Include="Base\BindableBase.cs" />
     <Compile Include="Base\MVVMBehavior.cs" />
     <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Contacts\ContactItem.xaml.cs">
+      <DependentUpon>ContactItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contacts\ContactListView.xaml.cs">
       <DependentUpon>ContactListView.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Services\ContactRepositoryJson.cs" />
     <Compile Include="Services\IContactRepository.cs" />
+    <Page Include="Contacts\ContactItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Contacts\ContactListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +114,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ContactBook.Data.Models.Contact.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

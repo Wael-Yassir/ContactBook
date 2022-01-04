@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace ContactBook.WPF.Contacts
 {
     /// <summary>
-    /// Interaction logic for ContactListView.xaml
+    /// Interaction logic for ContactItem.xaml
     /// </summary>
-    public partial class ContactListView : UserControl
+    public partial class ContactItem : UserControl
     {
-        public ContactListView()
+        public ContactItem()
         {
             InitializeComponent();
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
