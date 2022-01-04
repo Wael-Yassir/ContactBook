@@ -11,8 +11,6 @@ namespace ContactBook.Data
         {
             JsonGeneraor.CreateJsonFile();
 
-            List<Contact> data = JsonGeneraor.ParseJsonFile();
-
             Console.ReadLine();
         }
     }

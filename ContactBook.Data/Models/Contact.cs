@@ -27,7 +27,7 @@ namespace ContactBook.Data.Models
                 {
                     _firstName = value;
                     OnPropertyChanged();
-                    OnPropertyChanged(nameof(_fullName));
+                    OnPropertyChanged(nameof(FullName));
                 }
             }
         }
@@ -43,12 +43,10 @@ namespace ContactBook.Data.Models
                 {
                     _lastName = value;
                     OnPropertyChanged();
-                    OnPropertyChanged(nameof(_fullName));
+                    OnPropertyChanged(nameof(FullName));
                 }
             }
         }
-
-        private string _fullName;
 
         public string FullName
         {

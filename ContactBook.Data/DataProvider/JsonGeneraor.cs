@@ -8,14 +8,13 @@ namespace ContactBook.Data.DataProvider
 {
     public static class JsonGeneraor
     {
-        private static string _dbPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
+        private static readonly string _dbPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
 
-        private static string _dbFileName = _dbPath + @"\ContactDB.json";
+        private static readonly string _dbFileName = _dbPath + @"\ContactDB.json";
 
         public static string DbFileName
         {
             get { return _dbFileName; }
-            private set { _dbFileName = value; }
         }
 
 
@@ -107,7 +106,7 @@ namespace ContactBook.Data.DataProvider
                 NullValueHandling = NullValueHandling.Ignore,
             };
 
-            contents.Append(JsonConvert.SerializeObject(Contacts, settings));
+            contents.Append(JsonConvert.SerializeObject(contacts, settings));
 
             using (StreamWriter stream = new StreamWriter(_dbFileName, false))
             {

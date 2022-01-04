@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -59,11 +62,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Base\BindableBase.cs" />
+    <Compile Include="Base\MVVMBehavior.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Contacts\ContactListView.xaml.cs">
       <DependentUpon>ContactListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contacts\ContactListViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Services\ContactRepositoryJson.cs" />
     <Compile Include="Services\IContactRepository.cs" />
     <Page Include="Contacts\ContactListView.xaml">
