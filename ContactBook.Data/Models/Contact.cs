@@ -68,7 +68,7 @@ namespace ContactBook.Data.Models
             }
         }
 
-        private string _image;
+        private string _image = @"D:\Work\Development\_Side Project\ContactBook\DB\avatar.png";
 
         public string Image
         {

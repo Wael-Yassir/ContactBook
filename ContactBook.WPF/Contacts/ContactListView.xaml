@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ContactBook.WPF.Contacts"
-             xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="ContactBook.WPF.Contacts.ContactListView"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors" 
+             x:Class="ContactBook.WPF.Contacts.ContactListView"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="500">
     <b:Interaction.Triggers>
@@ -44,7 +45,7 @@
             </TextBox.Resources>
         </TextBox>
         <ListView x:Name="contactList" Grid.Row="1" Margin="10" ItemsSource="{Binding Contacts}" 
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedContact}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -56,7 +57,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Grid Grid.Row="2" DataContext="{Binding ElementName=contactList, Path=SelectedItem}">
+        <Grid Grid.Row="2" DataContext="{Binding SelectedContact, Mode=OneWay}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
@@ -65,7 +66,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>  
             </Grid.RowDefinitions>
             <StackPanel Margin="10 0">
                 <TextBlock Style="{StaticResource txtBlock}" Text="First Name:"/>
@@ -85,9 +86,13 @@
                 <TextBox Style="{StaticResource txtInput}" Text="{Binding Email}"/>
                 <TextBox Style="{StaticResource txtInput}" Text="{Binding Company}"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-                <Button Height="30" Width="85" Margin="10 0" Content="Add"/>
-                <Button Height="30" Width="85" Content="Cancel"/>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" 
+                        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+
+                <Button Height="30" Width="85" Margin="0 0 10 0" Content="Delete" Command="{Binding DeleteCommand}"/>
+                <Button Height="30" Width="85" Margin="0 0 10 0" Content="Add" Command="{Binding AddCommand}"/>
+                <Button Height="30" Width="85" Content="Save Changes" Command="{Binding SaveChangesCommand}"/>
+                
             </StackPanel>
         </Grid>
     </Grid>

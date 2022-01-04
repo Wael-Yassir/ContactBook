@@ -26,12 +26,5 @@ namespace ContactBook.WPF
             get { return _currentViewModel = _contactListViewModel; }
             set { SetProperty(ref _currentViewModel, value); }
         }
-
-
-        public void OnApplicationShutdown()
-        {
-            //_contactListViewModel.Save();
-        }
-
     }
 }
