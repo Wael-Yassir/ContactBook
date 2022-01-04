@@ -12,12 +12,26 @@ namespace ContactBook.WPF
 {
     class MainWindowViewModel : BindableBase
     {
-        private ContactListViewModel _contactListViewModel = new ContactListViewModel();
         private IContactRepository _repo = new ContactRepositoryJson();
-        
+        private ContactListViewModel _contactListViewModel;
+
+        public MainWindowViewModel()
+        {
+            _contactListViewModel = new ContactListViewModel(_repo);
+        }
+
+        private BindableBase _currentViewModel;
+        public BindableBase CurrentViewModel
+        {
+            get { return _currentViewModel = _contactListViewModel; }
+            set { SetProperty(ref _currentViewModel, value); }
+        }
+
+
         public void OnApplicationShutdown()
         {
-            MessageBox.Show("dddd");
+            //_contactListViewModel.Save();
         }
+
     }
 }

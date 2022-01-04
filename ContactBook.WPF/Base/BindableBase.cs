@@ -5,7 +5,7 @@ namespace ContactBook.WPF.Base
 {
     public class BindableBase : INotifyPropertyChanged
     {
-        protected virtual void SetPropery<T>(ref T member, T value, 
+        protected virtual void SetProperty<T>(ref T member, T value, 
             [CallerMemberName] string propertyName = null)
         {
             if (object.Equals(member, value)) 
