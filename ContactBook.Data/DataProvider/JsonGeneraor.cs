@@ -6,10 +6,18 @@ using System.Collections.Generic;
 
 namespace ContactBook.Data.DataProvider
 {
-    internal static class JsonGeneraor
+    public static class JsonGeneraor
     {
         private static string _dbPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
+
         private static string _dbFileName = _dbPath + @"\ContactDB.json";
+
+        public static string DbFileName
+        {
+            get { return _dbFileName; }
+            private set { _dbFileName = value; }
+        }
+
 
         private static List<Contact> Contacts
         {
@@ -82,7 +90,7 @@ namespace ContactBook.Data.DataProvider
             return contents.ToString();
         }
 
-        public static void CreateJsonFile()
+        internal static void CreateJsonFile()
         {
             using (StreamWriter stream = new StreamWriter(_dbFileName, false))
             {
@@ -90,17 +98,21 @@ namespace ContactBook.Data.DataProvider
             }
         }
 
-        // TODO: move to the wpf app at the Repositry folder.
-        public static List<Contact> ParseJsonFile()
+        public static void CreateJsonFile(List<Contact> contacts)
         {
+            StringBuilder contents = new StringBuilder();
             JsonSerializerSettings settings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented,
                 NullValueHandling = NullValueHandling.Ignore,
             };
 
-            string content = File.ReadAllText(_dbFileName);
-            return JsonConvert.DeserializeObject<List<Contact>>(content);
+            contents.Append(JsonConvert.SerializeObject(Contacts, settings));
+
+            using (StreamWriter stream = new StreamWriter(_dbFileName, false))
+            {
+                stream.Write(contents.ToString());
+            }
         }
     }
 }

@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -57,13 +60,13 @@
     </ApplicationDefinition>
     <Compile Include="Base\BindableBase.cs" />
     <Compile Include="Command\RelayCommand.cs" />
-    <Compile Include="Contact\ContactListView.xaml.cs">
+    <Compile Include="Contacts\ContactListView.xaml.cs">
       <DependentUpon>ContactListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contact\ContactListViewModel.cs" />
+    <Compile Include="Contacts\ContactListViewModel.cs" />
     <Compile Include="Services\ContactRepositoryJson.cs" />
     <Compile Include="Services\IContactRepository.cs" />
-    <Page Include="Contact\ContactListView.xaml">
+    <Page Include="Contacts\ContactListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +101,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,6 +113,12 @@
   <ItemGroup>
     <Folder Include="Converter\" />
     <Folder Include="Validator\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactBook.Data\ContactBook.Data.csproj">
+      <Project>{2be66dae-e3ec-430c-8525-914af8b21a10}</Project>
+      <Name>ContactBook.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

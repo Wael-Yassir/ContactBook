@@ -1,6 +1,6 @@
 ﻿using ContactBook.WPF.Base;
 
-namespace ContactBook.WPF.Contact
+namespace ContactBook.WPF.Contacts
 {
     public class ContactListViewModel : BindableBase
     {

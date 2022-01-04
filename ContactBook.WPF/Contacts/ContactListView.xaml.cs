@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ContactBook.WPF.Contact
+namespace ContactBook.WPF.Contacts
 {
     /// <summary>
     /// Interaction logic for ContactListView.xaml
