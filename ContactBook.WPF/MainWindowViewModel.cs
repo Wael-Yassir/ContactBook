@@ -1,12 +1,6 @@
 ﻿using ContactBook.WPF.Base;
 using ContactBook.WPF.Contacts;
 using ContactBook.WPF.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ContactBook.WPF
 {
@@ -18,12 +12,13 @@ namespace ContactBook.WPF
         public MainWindowViewModel()
         {
             _contactListViewModel = new ContactListViewModel(_repo);
+            CurrentViewModel = _contactListViewModel;
         }
 
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
         {
-            get { return _currentViewModel = _contactListViewModel; }
+            get { return _currentViewModel; }
             set { SetProperty(ref _currentViewModel, value); }
         }
     }
