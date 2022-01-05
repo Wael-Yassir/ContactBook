@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using ContactBook.Data.Models;
@@ -21,7 +22,7 @@ namespace ContactBook.WPF.Services
             return JsonConvert.DeserializeObject<List<Contact>>(content);
         }
 
-        public Task<Contact> GetContactAsync(int id)
+        public Task<Contact> GetContactAsync(Guid id)
         {
             throw new System.NotImplementedException();
         }
@@ -36,7 +37,7 @@ namespace ContactBook.WPF.Services
             throw new System.NotImplementedException();
         }
 
-        public Task DeleteContactAsync(int id)
+        public Task DeleteContactAsync(Guid id)
         {
             throw new System.NotImplementedException();
         }

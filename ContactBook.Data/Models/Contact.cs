@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -7,8 +8,8 @@ namespace ContactBook.Data.Models
     public class Contact : INotifyPropertyChanged
     {
         #region Properties
-        private int _id;
-        public int Id
+        private Guid _id;
+        public Guid Id
         {
             get { return _id; }
             set { _id = value; }

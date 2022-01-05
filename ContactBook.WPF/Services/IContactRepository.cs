@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ContactBook.Data.Models;
+using System.Collections.Generic;
 
 
 namespace ContactBook.WPF.Services
@@ -11,9 +9,9 @@ namespace ContactBook.WPF.Services
     public interface IContactRepository
     {
         Task<List<Contact>> GetContactsAsync();
-        Task<Contact> GetContactAsync(int id);
+        Task<Contact> GetContactAsync(Guid id);
         Task<Contact> AddContactAsync(Contact contact);
         Task<Contact> UpdateContactAsync(Contact contact);
-        Task DeleteContactAsync(int id);
+        Task DeleteContactAsync(Guid id);
     }
 }

@@ -82,9 +82,12 @@ namespace ContactBook.WPF.Contacts
 
         private void OnAdd()
         {
-            Contact newContact = new Contact();
-            newContact.FirstName = "New";
-            newContact.LastName = "Contact";
+            Contact newContact = new Contact()
+            {
+                Id = System.Guid.NewGuid(),
+                FirstName = "New",
+                LastName = "Contact",
+            };
 
             Contacts.Add(newContact);
             SelectedContact = newContact;
