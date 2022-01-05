@@ -14,6 +14,16 @@ namespace ContactBook.WPF.Contacts
         public RelayCommand DeleteCommand { get; private set; }
         public RelayCommand AddCommand { get; private set; }
         public RelayCommand SaveChangesCommand { get; private set; }
+        public RelayCommand CleanSearchCommand { get; private set; }
+
+        public ContactListViewModel(IContactRepository repo)
+        {
+            _repo = repo;
+            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
+            AddCommand = new RelayCommand(OnAdd);
+            SaveChangesCommand = new RelayCommand(OnSave);
+            CleanSearchCommand = new RelayCommand(OnEscape);
+        }
 
         private Contact _selectedContact;
         public Contact SelectedContact
@@ -26,25 +36,48 @@ namespace ContactBook.WPF.Contacts
             }
         }
 
-        public ContactListViewModel(IContactRepository repo)
+        private List<Contact> _allContacts;
+        public List<Contact> AllContacts
         {
-            _repo = repo;
-            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
-            AddCommand = new RelayCommand(OnAdd);
-            SaveChangesCommand = new RelayCommand(OnSave);
+            get { return _allContacts; }
+            set { _allContacts = value; }
         }
 
-        private ObservableCollection<Contact> contacts;
+        private ObservableCollection<Contact> _contacts;
         public ObservableCollection<Contact> Contacts
         {
-            get { return contacts; }
-            set { SetProperty(ref contacts, value); }
+            get { return _contacts; }
+            set { SetProperty(ref _contacts, value); }
+        }
+
+        private string _searchInput;
+        public string SearchInput
+        {
+            get { return _searchInput; }
+            set
+            {
+                SetProperty(ref _searchInput, value);
+                FitlerContact(_searchInput);
+            }
+        }
+
+        private void FitlerContact(string searchInput)
+        {
+            if (string.IsNullOrWhiteSpace(searchInput))
+            {
+                Contacts = new ObservableCollection<Contact>(_allContacts);
+                return;
+            }
+
+            Contacts = new ObservableCollection<Contact>(
+                _allContacts.Where(c => c.FullName.ToLower().Contains(searchInput.ToLower()))
+                );
         }
 
         public async void LoadContacts()
         {
-            List<Contact> contactList = await _repo.GetContactsAsync();
-            Contacts = new ObservableCollection<Contact>(contactList);
+            _allContacts = await _repo.GetContactsAsync();
+            Contacts = new ObservableCollection<Contact>(_allContacts);
         }
 
         public void OnSave()
@@ -73,6 +106,11 @@ namespace ContactBook.WPF.Contacts
                 return true;
 
             return false;
+        }
+
+        private void OnEscape()
+        {
+            SearchInput = null;
         }
     }
 }

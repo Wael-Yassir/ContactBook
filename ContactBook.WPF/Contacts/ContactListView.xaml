@@ -33,6 +33,7 @@
     </UserControl.Resources>
     <UserControl.InputBindings>
         <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"/>
+        <KeyBinding Key="Esc" Command="{Binding CleanSearchCommand}"/>
     </UserControl.InputBindings>
     <Grid Margin="5">
         <Grid.RowDefinitions>
@@ -40,7 +41,8 @@
             <RowDefinition Height="325"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBox FontStyle="Italic" Foreground="Gray" Margin="10">
+        <TextBox FontStyle="Italic" Foreground="Gray" Margin="10" 
+                 Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
