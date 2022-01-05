@@ -44,7 +44,7 @@ namespace ContactBook.Data.DataProvider
                                 Email = "ah6@gmail.com"},
                 new Contact() {Id = Guid.NewGuid(), FirstName = "Reham", LastName = "Roshdy", Phone = "(+20) 1044125970",
                                },
-                new Contact() {Id = Guid.NewGuid(), FirstName = "Mohamed", LastName = "Fikry", Phone = "(+20) 128825741",
+                new Contact() {Id = Guid.NewGuid(), FirstName = "Mohamed", LastName = "Fikry", Phone = "(+20) 1287825741",
                                 Email = "mf8@gmail.com", Company = "Ruka"},
                 new Contact() {Id = Guid.NewGuid(), FirstName = "Hosny", LastName = "Hassan", Phone = "(+20) 1120992378",
                                 Email = "hh9@gmail.com"},
@@ -64,7 +64,7 @@ namespace ContactBook.Data.DataProvider
 
                 new Contact() {Id = Guid.NewGuid(), FirstName = "Fares", LastName = "Roshdy", Phone = "(+20) 1168565320",
                                 Company = "BAM"},
-                new Contact() {Id = Guid.NewGuid(), FirstName = "Basher", LastName = "Ali", Phone = "(+20) 128857284",
+                new Contact() {Id = Guid.NewGuid(), FirstName = "Basher", LastName = "Ali", Phone = "(+20) 1288757284",
                                 Company = "RISA"},
                 new Contact() {Id = Guid.NewGuid(), FirstName = "Ahmed", LastName = "Bary", Phone = "(+20) 1196136525",
                                 Email = "ab19@gmail.com"},
