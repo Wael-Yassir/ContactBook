@@ -37,11 +37,6 @@ namespace ContactBook.WPF.Contacts
         }
 
         private List<Contact> _allContacts;
-        public List<Contact> AllContacts
-        {
-            get { return _allContacts; }
-            set { _allContacts = value; }
-        }
 
         private ObservableCollection<Contact> _contacts;
         public ObservableCollection<Contact> Contacts
