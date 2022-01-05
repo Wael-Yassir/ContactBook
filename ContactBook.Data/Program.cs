@@ -1,6 +1,4 @@
 ﻿using System;
-using ContactBook.Data.Models;
-using System.Collections.Generic;
 using ContactBook.Data.DataProvider;
 
 namespace ContactBook.Data

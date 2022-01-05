@@ -8,10 +8,10 @@ namespace ContactBook.Data.DataProvider
 {
     public static class JsonGeneraor
     {
-        private static readonly string _dbPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
+        private static readonly string _dbPath = 
+            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\DB";
 
         private static readonly string _dbFileName = _dbPath + @"\ContactDB.json";
-
         public static string DbFileName
         {
             get { return _dbFileName; }
@@ -29,48 +29,48 @@ namespace ContactBook.Data.DataProvider
             return new List<Contact>()
             {
                 new Contact() {Id = 1, FirstName = "Wael", LastName = "Yassir", Phone = "(+20) 1021563779",
-                                Email = "wy1@gmail.com", Company = "Emactus", Image = _dbPath + @"\avatar.png"},
+                                Email = "wy1@gmail.com", Company = "Emactus"},
                 new Contact() {Id = 2, FirstName = "Waleed", LastName = "Yassir", Phone = "(+20) 1073436700",
-                                Email = "yy2@gmail.com", Company = "Yoma", Image = _dbPath + @"\avatar.png"},
+                                Email = "yy2@gmail.com", Company = "Yoma"},
                 new Contact() {Id = 3, FirstName = "Ahmed", LastName = "Osama", Phone = "(+20) 1143611048",
-                                Email = "ao3@gmail.com", Company = "Luca", Image = _dbPath + @"\avatar.png"},
+                                Email = "ao3@gmail.com", Company = "Luca"},
                 new Contact() {Id = 4, FirstName = "Eslam", LastName = "Ibrahim", Phone = "(+20) 1514192306",
-                                Email = "ei4@gmail.com", Company = "Kira", Image = _dbPath + @"\avatar.png"},
+                                Email = "ei4@gmail.com", Company = "Kira"},
                 new Contact() {Id = 5, FirstName = "Heba", LastName = "Ali", Phone = "(+20) 1249457123",
-                                Email = "ha5@gmail.com", Company = "Fairy", Image = _dbPath + @"\avatar.png"},
+                                Email = "ha5@gmail.com", Company = "Fairy"},
 
                 new Contact() {Id = 6, FirstName = "Alaa", LastName = "Hassan", Phone = "(+20) 1572617636",
-                                Email = "ah6@gmail.com", Image = _dbPath + @"\avatar.png"},
+                                Email = "ah6@gmail.com"},
                 new Contact() {Id = 7, FirstName = "Reham", LastName = "Roshdy", Phone = "(+20) 1044125970",
-                               Image = _dbPath + @"\avatar.png"},
+                               },
                 new Contact() {Id = 8, FirstName = "Mohamed", LastName = "Fikry", Phone = "(+20) 128825741",
-                                Email = "mf8@gmail.com", Company = "Ruka", Image = _dbPath + @"\avatar.png"},
+                                Email = "mf8@gmail.com", Company = "Ruka"},
                 new Contact() {Id = 9, FirstName = "Hosny", LastName = "Hassan", Phone = "(+20) 1120992378",
-                                Email = "hh9@gmail.com", Image = _dbPath + @"\avatar.png"},
+                                Email = "hh9@gmail.com"},
                 new Contact() {Id = 10, FirstName = "Reda", LastName = "Kairy", Phone = "(+20) 1091751370",
-                                Company = "Liomay", Image = _dbPath + @"\avatar.png"},
+                                Company = "Liomay"},
 
                 new Contact() {Id = 11, FirstName = "Sara", LastName = "Abbas", Phone = "(+20) 1031689578",
-                                Company = "Droplex", Image = _dbPath + @"\avatar.png"},
+                                Company = "Droplex"},
                 new Contact() {Id = 12, FirstName = "Martina", LastName = "Hany", Phone = "(+20) 1526094221",
-                               Image = _dbPath + @"\avatar.png"},
+                               },
                 new Contact() {Id = 13, FirstName = "Bassant", LastName = "Bassem", Phone = "(+20) 1165764042",
-                                Email = "bb13@gmail.com", Image = _dbPath + @"\avatar.png"},
+                                Email = "bb13@gmail.com"},
                 new Contact() {Id = 14, FirstName = "Khalid", LastName = "Rabea", Phone = "(+20) 1212312781",
-                                Image = _dbPath + @"\avatar.png"},
+                                },
                 new Contact() {Id = 15, FirstName = "Esraa", LastName = "Ali", Phone = "(+20) 1037005769",
-                                Email = "ea15@gmail.com", Company = "IDAX", Image = _dbPath + @"\avatar.png"},
+                                Email = "ea15@gmail.com", Company = "IDAX"},
 
                 new Contact() {Id = 16, FirstName = "Fares", LastName = "Roshdy", Phone = "(+20) 1168565320",
-                                Company = "BAM", Image = _dbPath + @"\avatar.png"},
+                                Company = "BAM"},
                 new Contact() {Id = 17, FirstName = "Basher", LastName = "Ali", Phone = "(+20) 128857284",
-                                Company = "RISA", Image = _dbPath + @"\avatar.png"},
+                                Company = "RISA"},
                 new Contact() {Id = 18, FirstName = "Ahmed", LastName = "Bary", Phone = "(+20) 1196136525",
-                                Email = "ab19@gmail.com", Image = _dbPath + @"\avatar.png"},
+                                Email = "ab19@gmail.com"},
                 new Contact() {Id = 19, FirstName = "Rasha", LastName = "Feras", Phone = "(+20) 1282195975",
-                                Image = _dbPath + @"\avatar.png"},
+                                },
                 new Contact() {Id = 20, FirstName = "Omar", LastName = "Mhamed", Phone = "(+20) 1515737927",
-                                Image = _dbPath + @"\avatar.png"},
+                                },
             };
         }
 
@@ -107,6 +107,11 @@ namespace ContactBook.Data.DataProvider
             };
 
             contents.Append(JsonConvert.SerializeObject(contacts, settings));
+
+            if (File.Exists(_dbFileName))
+            {
+                File.Delete(_dbFileName);
+            }
 
             using (StreamWriter stream = new StreamWriter(_dbFileName, false))
             {

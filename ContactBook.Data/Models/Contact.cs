@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.IO;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ContactBook.Data.Models
@@ -7,9 +8,6 @@ namespace ContactBook.Data.Models
     {
         #region Properties
         private int _id;
-
-        // the Id property access modifier is set as "Internal" to be access in the assembly when generating the JSON file only
-        // in the case of an actual DB it should be private.
         public int Id
         {
             get { return _id; }
@@ -17,7 +15,6 @@ namespace ContactBook.Data.Models
         }
 
         private string _firstName;
-
         public string FirstName
         {
             get { return _firstName; }
@@ -33,7 +30,6 @@ namespace ContactBook.Data.Models
         }
 
         private string _lastName;
-
         public string LastName
         {
             get { return _lastName; }
@@ -54,7 +50,6 @@ namespace ContactBook.Data.Models
         }
 
         private string _phone;
-
         public string Phone
         {
             get { return _phone; }
@@ -68,8 +63,7 @@ namespace ContactBook.Data.Models
             }
         }
 
-        private string _image = @"D:\Work\Development\_Side Project\ContactBook\DB\avatar.png";
-
+        private string _image = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Resources\avatar.png";
         public string Image
         {
             get { return _image; }
@@ -84,7 +78,6 @@ namespace ContactBook.Data.Models
         }
 
         private string _email;
-
         public string Email
         {
             get { return _email; }
@@ -99,7 +92,6 @@ namespace ContactBook.Data.Models
         }
 
         private string _company;
-
         public string Company
         {
             get { return _company; }
