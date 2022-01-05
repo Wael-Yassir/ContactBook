@@ -8,9 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBook.WPF", "ContactBook.WPF\ContactBook.WPF.csproj", "{A83FA936-B1A6-4957-AACB-4B84839D33A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A355DAF-DD85-44BB-A686-20972422035E}"
-	ProjectSection(SolutionItems) = preProject
-		ContactBook BulletPoints.txt = ContactBook BulletPoints.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
