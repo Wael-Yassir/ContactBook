@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Base\BindableBase.cs" />
+    <Compile Include="Base\_BindableBase.cs" />
     <Compile Include="Base\MVVMBehavior.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Contacts\AddContactView.xaml.cs">
@@ -132,13 +132,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Validator\" />
+    <Folder Include="Validation\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactBook.Data\ContactBook.Data.csproj">
       <Project>{2be66dae-e3ec-430c-8525-914af8b21a10}</Project>
       <Name>ContactBook.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

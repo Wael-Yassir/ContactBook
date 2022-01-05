@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ContactBook.WPF.Base;
+using ContactBook.Data.Base;
 using ContactBook.WPF.Command;
 using ContactBook.Data.Models;
 using ContactBook.WPF.Services;
@@ -82,12 +82,11 @@ namespace ContactBook.WPF.Contacts
 
         private void OnAdd()
         {
-            Contact newContact = new Contact()
-            {
-                Id = System.Guid.NewGuid(),
-                FirstName = "New",
-                LastName = "Contact",
-            };
+            Contact newContact = new Contact();
+            newContact.Id = System.Guid.NewGuid();
+            newContact.FirstName = "New";
+            newContact.LastName = "Contact";
+            string ss = newContact.Image;
 
             Contacts.Add(newContact);
             SelectedContact = newContact;

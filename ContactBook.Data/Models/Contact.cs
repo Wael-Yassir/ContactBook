@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using ContactBook.Data.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContactBook.Data.Models
 {
-    public class Contact : INotifyPropertyChanged
+    public class Contact : ValidatableBindableBase
     {
         #region Properties
         private Guid _id;
@@ -16,32 +16,26 @@ namespace ContactBook.Data.Models
         }
 
         private string _firstName;
+        [Required]
         public string FirstName
         {
             get { return _firstName; }
             set
             {
-                if (_firstName != value)
-                {
-                    _firstName = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(FullName));
-                }
+                SetProperty(ref _firstName, value);
+                OnPropertyChanged(nameof(FullName));
             }
         }
 
         private string _lastName;
+        [Required]
         public string LastName
         {
             get { return _lastName; }
             set
             {
-                if (_lastName != value)
-                {
-                    _lastName = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(FullName));
-                }
+                SetProperty(ref _lastName, value);
+                OnPropertyChanged(nameof(FullName));
             }
         }
 
@@ -51,69 +45,35 @@ namespace ContactBook.Data.Models
         }
 
         private string _phone;
+        [RegularExpression(@"\(?\+([0-9]{2})\)? ?([0-9]{10})")]
         public string Phone
         {
             get { return _phone; }
-            set
-            {
-                if (_phone != value)
-                {
-                    _phone = value;
-                    OnPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _phone, value); }
         }
 
-        private string _image = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Resources\avatar.png";
+        private string _image = 
+            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Resources\avatar.png";
         public string Image
         {
             get { return _image; }
-            set
-            {
-                if (_image != value)
-                {
-                    _image = value;
-                    OnPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _image, value); }
         }
 
         private string _email;
+        [EmailAddress]
         public string Email
         {
             get { return _email; }
-            set
-            {
-                if (_email != value)
-                {
-                    _email = value;
-                    OnPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _email, value); }
         }
 
         private string _company;
         public string Company
         {
             get { return _company; }
-            set
-            {
-                if (_company != value)
-                {
-                    _company = value;
-                    OnPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _company, value); }
         }
         #endregion
-
-        // using delegate {} is what called delegate trick to avoid checking if the event is null
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
     }
 }

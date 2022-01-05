@@ -79,17 +79,17 @@
                 <TextBlock Style="{StaticResource txtBlock}" Text="Phone:"/>
             </StackPanel>
             <StackPanel Margin="10 0" Grid.Column="1" >
-                <TextBox Style="{StaticResource txtInput}" Text="{Binding FirstName}"/>
-                <TextBox Style="{StaticResource txtInput}" Text="{Binding LastName}"/>
-                <TextBox Style="{StaticResource txtInput}" Text="{Binding Phone}"/>
+                <TextBox Style="{StaticResource txtInput}" Text="{Binding FirstName, ValidatesOnNotifyDataErrors=True}"/>
+                <TextBox Style="{StaticResource txtInput}" Text="{Binding LastName, ValidatesOnNotifyDataErrors=True}"/>
+                <TextBox Style="{StaticResource txtInput}" Text="{Binding Phone, ValidatesOnNotifyDataErrors=True}"/>
             </StackPanel>
             <StackPanel Margin="10 0" Grid.Column="2">
                 <TextBlock Style="{StaticResource txtBlock}" Text="Email:"/>
                 <TextBlock Style="{StaticResource txtBlock}" Text="Company:"/>
             </StackPanel>
             <StackPanel Margin="10 0" Grid.Column="3" >
-                <TextBox Style="{StaticResource txtInput}" Text="{Binding Email}"/>
-                <TextBox Style="{StaticResource txtInput}" Text="{Binding Company}"/>
+                <TextBox Style="{StaticResource txtInput}" Text="{Binding Email, ValidatesOnNotifyDataErrors=True}"/>
+                <TextBox Style="{StaticResource txtInput}" Text="{Binding Company, ValidatesOnNotifyDataErrors=True}"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" 
                         DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">

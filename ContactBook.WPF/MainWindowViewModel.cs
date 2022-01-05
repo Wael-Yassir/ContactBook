@@ -1,4 +1,4 @@
-﻿using ContactBook.WPF.Base;
+﻿using ContactBook.Data.Base;
 using ContactBook.WPF.Contacts;
 using ContactBook.WPF.Services;
 

@@ -1,6 +1,6 @@
 ﻿using System;
+using ContactBook.Data.Base;
 using ContactBook.Data.Models;
-using ContactBook.WPF.Base;
 
 namespace ContactBook.WPF.Contacts
 {
