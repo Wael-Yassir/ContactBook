@@ -8,13 +8,13 @@ ContactBook is a simple dotnet desktop application to browse, add, and delete co
 ## Project Structure:
 - ### Client Service
   - Use JSON file as a database to read and write the contacts
-  - Use Repository pattern as a design pattern to allow replacing the database on the future form JSON file to actual database
+  - Use Repository pattern as a design pattern to allow replacing the database on the future form JSON file to an actual database
   - Implement async in reading and writing the data
-- ### Client Side:
+- ### Client-Side:
   -  The used framework is WPF
   -  Use MVVM pattern as an architectural pattern:
-      - No code behine
+      - No code-behined
       - Use commands and behaviors to communicate between views and viewmodels
-      - Seperate the view resposability from viewmodels responsabilities
+      - Separate the views responsibilities from viewmodels responsibilities
   - Implement data validation using Data Annotations, and INotifyDataErrorInfo interface
   - Adding searching and filtering to the contacts
