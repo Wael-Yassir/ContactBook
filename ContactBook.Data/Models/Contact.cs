@@ -7,7 +7,6 @@ namespace ContactBook.Data.Models
 {
     public class Contact : ValidatableBindableBase
     {
-        #region Properties
         private Guid _id;
         public Guid Id
         {
@@ -16,7 +15,7 @@ namespace ContactBook.Data.Models
         }
 
         private string _firstName;
-        [Required]
+        [Required(ErrorMessage = "The First Name field is required!")]
         public string FirstName
         {
             get { return _firstName; }
@@ -28,7 +27,7 @@ namespace ContactBook.Data.Models
         }
 
         private string _lastName;
-        [Required]
+        [Required(ErrorMessage = "The Last Name field is required!")]
         public string LastName
         {
             get { return _lastName; }
@@ -45,14 +44,15 @@ namespace ContactBook.Data.Models
         }
 
         private string _phone;
-        [RegularExpression(@"\(?\+([0-9]{2})\)? ?([0-9]{10})")]
+        [Required, RegularExpression(@"\(?\+([0-9]{2})\)? ?([0-9]{10})", 
+            ErrorMessage = "The Phone number must match this expression: (+XX) XXXXXXXXXX")]
         public string Phone
         {
             get { return _phone; }
             set { SetProperty(ref _phone, value); }
         }
 
-        private string _image = 
+        private string _image =
             Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Resources\avatar.png";
         public string Image
         {
@@ -61,7 +61,7 @@ namespace ContactBook.Data.Models
         }
 
         private string _email;
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Please, enter a valid email!")]
         public string Email
         {
             get { return _email; }
@@ -74,6 +74,5 @@ namespace ContactBook.Data.Models
             get { return _company; }
             set { SetProperty(ref _company, value); }
         }
-        #endregion
     }
 }

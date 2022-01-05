@@ -23,6 +23,14 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0 5"/>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" 
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self}, 
+                            Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="txtBlock">
@@ -30,6 +38,7 @@
             <Setter Property="Padding" Value="0 4"/>
             <Setter Property="Margin" Value="0 5"/>
         </Style>
+
     </UserControl.Resources>
     <UserControl.InputBindings>
         <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"/>
