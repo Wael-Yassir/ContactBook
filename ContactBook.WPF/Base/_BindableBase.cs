@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ContactBook.WPF.Base
 {
-    public class BindableBase : INotifyPropertyChanged
+    public class _BindableBase : INotifyPropertyChanged
     {
         protected virtual void SetProperty<T>(ref T member, T value, 
             [CallerMemberName] string propertyName = null)
