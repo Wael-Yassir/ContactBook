@@ -1,4 +1,4 @@
-# ContactBook Desktop App
+# ContactBook App
 ContactBook is a simple dotnet desktop application to browse, add, and delete contacts. It uses the WPF as UI framework and JSON file as a database to store and retrieve the contact from it. The used architectural pattern for the UI is MVVM pattern. 
 
 ## External Packages:
