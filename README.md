@@ -1,16 +1,12 @@
 # ContactBook App
 ContactBook is a simple dotnet desktop application to browse, add, and delete contacts. It uses the WPF as UI framework and JSON file as a database to store and retrieve the contact from it. The used architectural pattern for the UI is MVVM pattern. 
 
-## External Packages:
-- Newtonsoft.Json (Version 13.0.0.0)
-- Microsoft.Xaml.Behaviors (Version 1.1.0.0)
-
 ## Project Structure:
 The project consists of two major parts, **ContactBook.Data** and **ContactBook.WPF**.
 - **ContactBook.Data**:
   - *Console Application* as it has a helper class to generate mock JSON DB file.
   - Contains the main models (contact.cs), and validation.
-- **ContactBook.WPF:
+- **ContactBook.WPF**:
   - Contains the service that calls the DB to read and write the data.
   - Contains Views, ViewModels.
 
@@ -27,6 +23,10 @@ The project consists of two major parts, **ContactBook.Data** and **ContactBook.
       - Separate the views responsibilities from viewmodels, and models responsibilities
   - Implement data validation using Data Annotations, and INotifyDataErrorInfo interface
   - Adding searching and filtering to the contacts
+
+## Dependensies:
+- Newtonsoft.Json (Version 13.0.0.0)
+- Microsoft.Xaml.Behaviors (Version 1.1.0.0)
 
 ## Running the Project:
 1. Download, and build the projects.
