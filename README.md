@@ -6,11 +6,20 @@ ContactBook is a simple dotnet desktop application to browse, add, and delete co
 - Microsoft.Xaml.Behaviors (Version 1.1.0.0)
 
 ## Project Structure:
-- ### Client Service
+The projects contsists of two major parts, **ContactBook.Data** and **ContactBook.WPF**.
+- **ContactBook.Data**:
+  - *Console Application* as it has a helper class to generate mock JSON DB file.
+  - Contains the main models (contact.cs), and validation.
+- **ContactBook.WPF:
+  - Contains the services that calls the DB to read and write the data.
+  - Contains Views, ViewModels.
+
+## Project Key Points:
+- ### Client Service (ContactBook.Data):
   - Use JSON file as a database to read and write the contacts
   - Use Repository pattern as a design pattern to allow replacing the database on the future form JSON file to an actual database
   - Implement async in reading and writing the data
-- ### Client-Side:
+- ### Client-Side (ContactBook.WPF):
   -  The used framework is WPF
   -  Use MVVM pattern as an architectural pattern:
       - No code-behined
@@ -18,3 +27,8 @@ ContactBook is a simple dotnet desktop application to browse, add, and delete co
       - Separate the views responsibilities from viewmodels responsibilities
   - Implement data validation using Data Annotations, and INotifyDataErrorInfo interface
   - Adding searching and filtering to the contacts
+
+## Running the Project:
+1. Download, and build the projects.
+2. Run "ContactBook.Data" to generate the JSON file that works as the DB
+3. You can now Run "ContactBook.WPF" to launch the ContactBook desktop application 
